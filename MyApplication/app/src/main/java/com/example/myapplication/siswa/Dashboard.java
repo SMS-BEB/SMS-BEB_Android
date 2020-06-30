@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.siswa;
 
 import android.content.Context;
 import android.net.Uri;
@@ -9,17 +9,23 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.content.Intent;
+import android.widget.ImageButton;
+
+import com.example.myapplication.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Settings.OnFragmentInteractionListener} interface
+ * {@link Dashboard.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Settings#newInstance} factory method to
+ * Use the {@link Dashboard#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Settings extends Fragment {
+public class Dashboard extends Fragment {
+
+    ImageButton ib1, ib2, ib3, ib4, ib5;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,7 +37,7 @@ public class Settings extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public Settings() {
+    public Dashboard() {
         // Required empty public constructor
     }
 
@@ -41,11 +47,11 @@ public class Settings extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Settings.
+     * @return A new instance of fragment Dashboard.
      */
     // TODO: Rename and change types and number of parameters
-    public static Settings newInstance(String param1, String param2) {
-        Settings fragment = new Settings();
+    public static Dashboard newInstance(String param1, String param2) {
+        Dashboard fragment = new Dashboard();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,7 +72,48 @@ public class Settings extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false);
+        View v = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        ib1 = v.findViewById(R.id.sekolah);
+        ib1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), SekolahActivity.class));
+            }
+        });
+
+        ib2 = v.findViewById(R.id.kelas);
+        ib2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), KelasActivity.class));
+            }
+        });
+
+        ib3 = v.findViewById(R.id.bk);
+        ib3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), BkActivity.class));
+            }
+        });
+
+        ib4 = v.findViewById(R.id.suket);
+        ib4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), SuketActivity.class));
+            }
+        });
+
+        ib5 = v.findViewById(R.id.pembayaran);
+        ib5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), PembayaranActivity.class));
+            }
+        });
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -102,4 +149,5 @@ public class Settings extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }
