@@ -10,6 +10,7 @@ public class Url {
     public static final String PEMBAYARAN = BASE+"Api/pembayaran";
     public static final String BK = BASE+"Api/bk";
     public static final String SUKET = BASE+"Api/keterangan";
+    public static final String INPUT_SUKET = BASE+"Api/tes";
     public static final String JADWAL_GURU = BASE+"Api/jadwal_guru";
     public static final String SUKET_GURU = BASE+"Api/suket_guru";
     public static final String LIST_ABSEN_MAPEL = BASE+"Api/list_absen";
